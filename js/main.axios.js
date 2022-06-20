@@ -6,7 +6,7 @@ const d = document,
     $fragment = d.createDocumentFragment();
 
 /**
- * Funcion encargada de la 
+ * Funcion encargada de la informacion de la Api
  */
 const getAll = async () => {
     try {
@@ -87,7 +87,6 @@ d.addEventListener("submit", async e => {
 * Funcion editar y eliminar los datos de la base de datos de los santos.
 */
 d.addEventListener("click", async e => {
-    //editar
     if (e.target.matches(".edit")) {
         $title.textContent = "Editar Santo";
         $form.nombre.value = e.target.dataset.name;
@@ -98,7 +97,6 @@ d.addEventListener("click", async e => {
         console.log($template.querySelector(".name").textContent)
         let isDelete = confirm(`¿estas seguro de eliminar el santo ${$template.querySelector(".name").textContent}?`);
         if (isDelete) {
-            //delete-Delete
             try {
                 let options = {
                     method: "DELETE",
