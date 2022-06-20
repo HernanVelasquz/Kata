@@ -1,50 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/5/cyborg/bootstrap.min.css">
     <title>CRUD API REST AXIOS</title>
 </head>
+
 <body>
-<h1>CRUD API REST AJAX</h1>
-<section id="curd">
-    <article>
-        <h2 class="crud-title">Agregar Santos</h2>
-        <form action="" class="crud-form">
-            <input type="text" name="nombre" placeholder="nombre" required>
-            <br>
-            <input type="text" name="constalacion" placeholder="constalacion" required>
-            <br>
-            <input type="submit" value="Enviar">
-            <input type="hidden" name="id">
-        </form>
-    </article>
-    <article>
-        <h2>Ver Santos</h2>
-        <table class="crud-table">
-            <thead>
+    <div class="container-fluid">
+        <h1><i>CRUD API REST AXIOS </i></h1>
+        <section class="crud">
+            <article>
+                <h2 class="crud-title"><i>Agregar Santo</i></h2>
+                <form class="crud-form">
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" name="constelacion" placeholder="Constelacion"
+                                required>
+                        </div>
+                        <div class="col">
+                            <input class="btn btn-dark" type="submit" value="enviar">
+                        </div>
+                    </div>
+                    <input type="hidden" name="id">
+                </form>
+            </article>
+            <article>
+                <h2><i>Ver Santos</i></h2>
+                <table class="crud-table table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Constelacion</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </article>
+            <template id="crud-template">
                 <tr>
-                    <th>Nombre</th>
-                    <th>Constelacion</th>
-                    <th>Acciones</th>
+                    <td class="name"></td>
+                    <td class="constellation"></td>
+                    <td>
+                        <button type="button" class="edit btn btn-primary">editar</button>
+                        <button type="button" class="delete btn btn-danger">eliminar</button>
+                    </td>
                 </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </article>
-</section>
-<template id="crud-template">
-    <tr>
-        <td class="name"></td>
-        <td class="constellation"></td>
-        <td>
-            <button class="edit">Editar</button>
-            <button class="delete">Eliminar</button>
-        </td>
-    </tr>
-</template>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="./js/main.axios.js"></script>
+            </template>
+        </section>
+    </div>
+    </template>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/main.axios.js"></script>
 </body>
+
 </html>

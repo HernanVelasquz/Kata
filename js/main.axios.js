@@ -37,7 +37,6 @@ d.addEventListener("DOMContentLoaded", getAll)
 d.addEventListener("submit", async e => {
     if (e.target === $form) {
         e.preventDefault();
-
         if (!e.target.id.value) {
             //Create-POST
             try {
@@ -59,7 +58,6 @@ d.addEventListener("submit", async e => {
                 $form.insertAdjacentHTML("afterend", `<p><b>Error ${err.status}:${message}</b></p>`);
             }
         } else {
-            //UpdatePUT
             try {
                 let options = {
                     method: "PUT",
@@ -93,8 +91,7 @@ d.addEventListener("click", async e => {
         $form.constelacion.value = e.target.dataset.constellation;
         $form.id.value = e.target.dataset.id;
     }
-    if (e.target.matches(".delete")) {
-        console.log($template.querySelector(".name").textContent)
+    if (e.target.matches(".delete")){
         let isDelete = confirm(`¿estas seguro de eliminar el santo ${$template.querySelector(".name").textContent}?`);
         if (isDelete) {
             try {
