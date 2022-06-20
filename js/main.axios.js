@@ -12,7 +12,6 @@ const getAll = async () => {
     try {
         let res = await axios.get("http://localhost:5555/santos"),
             json = await res.data;
-        console.log(json);
         json.forEach(el => {
             $template.querySelector(".name").textContent = el.nombre;
             $template.querySelector(".constellation").textContent = el.constelacion;
