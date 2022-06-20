@@ -5,6 +5,9 @@ const d = document,
     $template = d.getElementById("crud-template").content,
     $fragment = d.createDocumentFragment();
 
+/**
+ * Funcion encargada de la 
+ */
 const getAll = async () => {
     try {
         let res = await axios.get("http://localhost:5555/santos"),
@@ -29,7 +32,7 @@ const getAll = async () => {
 }
 d.addEventListener("DOMContentLoaded", getAll)
 /**
- * Crear y editar santo
+ * Funcion encargada de crear y editar  en los santo de la api falsa.
  */
 d.addEventListener("submit", async e => {
     if (e.target === $form) {
@@ -81,7 +84,7 @@ d.addEventListener("submit", async e => {
 })
 
 /**
-* Funcion editar y eliminar santos
+* Funcion editar y eliminar los datos de la base de datos de los santos.
 */
 d.addEventListener("click", async e => {
     //editar
@@ -91,5 +94,25 @@ d.addEventListener("click", async e => {
         $form.constelacion.value = e.target.dataset.constellation;
         $form.id.value = e.target.dataset.id;
     }
-    
+    if (e.target.matches(".delete")) {
+        console.log($template.querySelector(".name").textContent)
+        let isDelete = confirm(`¿estas seguro de eliminar el santo ${$template.querySelector(".name").textContent}?`);
+        if (isDelete) {
+            //delete-Delete
+            try {
+                let options = {
+                    method: "DELETE",
+                    headers: {
+                        "Content-type": "application/json;charset = utf-8"
+                    },
+                },
+                    res = await axios(`http://localhost:5555/santos/${e.target.dataset.id}`, options),
+                    json = await res.data
+                location.reload();
+            } catch (err) {
+                let message = xhr.statusText || "Ocurrio un error";
+                alert(`Error ${err.status}:${message}`);
+            }
+        }
+    }
 })
