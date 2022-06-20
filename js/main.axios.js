@@ -79,3 +79,17 @@ d.addEventListener("submit", async e => {
         }
     }
 })
+
+/**
+* Funcion editar y eliminar santos
+*/
+d.addEventListener("click", async e => {
+    //editar
+    if (e.target.matches(".edit")) {
+        $title.textContent = "Editar Santo";
+        $form.nombre.value = e.target.dataset.name;
+        $form.constelacion.value = e.target.dataset.constellation;
+        $form.id.value = e.target.dataset.id;
+    }
+    
+})
